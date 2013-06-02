@@ -3,7 +3,7 @@ package ch.zhaw.schilram.lernjournal.domain;
 import java.io.Serializable;
 
 /**
- * @author: rschilling
+ * @author schilram
  */
 public class Recipe implements Serializable {
 

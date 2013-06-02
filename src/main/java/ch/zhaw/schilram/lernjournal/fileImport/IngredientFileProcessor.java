@@ -11,7 +11,7 @@ import java.io.*;
  * Reads a File and Stores the Ingredient.
  * Any following lines are ignored.
  *
- * @author: schilram
+ * @author schilram
  */
 public class IngredientFileProcessor extends AbstractFileProcessor {
 

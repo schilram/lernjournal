@@ -1,7 +1,7 @@
 package ch.zhaw.schilram.lernjournal.domain;
 
 /**
- * @author: rschilling
+ * @author schilram
  */
 public enum flavor {
     SALTY, SWEET, SOUR, BITTER, UMAMI

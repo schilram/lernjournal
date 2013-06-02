@@ -1,7 +1,7 @@
 package ch.zhaw.schilram.lernjournal.fileImport;
 
 /**
- * @author: rschilling
+ * @author schilram
  */
 public class Main {
 

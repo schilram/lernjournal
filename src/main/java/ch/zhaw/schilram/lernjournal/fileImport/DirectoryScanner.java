@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author: rschilling
+ * @author schilram
  */
 public class DirectoryScanner {
 

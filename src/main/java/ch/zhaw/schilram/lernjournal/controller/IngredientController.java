@@ -16,7 +16,9 @@ import java.util.List;
 
 
 /**
- * Handles and retrieves person request.
+ * Handles and retrieves ingredient request.
+ *
+ * @author schilram
  */
 @Controller
 @RequestMapping("/ingredients")
