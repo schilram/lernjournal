@@ -1,0 +1,17 @@
+-- TABLE Ingredients
+CREATE TABLE public.ingredients
+(
+  id serial,
+  name character varying(32),
+  description text,
+  CONSTRAINT ingredient_id PRIMARY KEY (id)
+)
+WITH (
+OIDS = FALSE
+)
+;
+ALTER TABLE public.ingredients
+OWNER TO lernjournal;
+
+
+-- TABLE recepies

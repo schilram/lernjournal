@@ -9,7 +9,7 @@
 	
 	<servlet-mapping>
 		<servlet-name>spring</servlet-name>
-		<url-pattern>/schilram/*</url-pattern>
+		<url-pattern>/lernjournal/*</url-pattern>
 	</servlet-mapping>
 
 	<listener>

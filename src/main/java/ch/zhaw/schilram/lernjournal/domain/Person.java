@@ -3,46 +3,47 @@ package ch.zhaw.schilram.lernjournal.domain;
 import java.io.Serializable;
 
 /**
- * A simple POJO representing a Person
+ * A simple POJO representing a Person.
  */
 public class Person implements Serializable {
 
-	private static final long serialVersionUID = -5527566248002296042L;
-	
-	private Integer id;
-	private String firstName;
-	private String lastName;
-	private Double money;
+    private static final long serialVersionUID = -5527566248002296042L;
 
-	public Integer getId() {
-		return id;
-	}
+    private Integer id;
+    private String firstName;
+    private String lastName;
+    private Integer money;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public Double getMoney() {
-		return money;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public void setMoney(Double money) {
-		this.money = money;
-	}
+    public Integer getMoney() {
+        return money;
+    }
+
+    public void setMoney(Integer money) {
+        this.money = money;
+    }
+
 }
