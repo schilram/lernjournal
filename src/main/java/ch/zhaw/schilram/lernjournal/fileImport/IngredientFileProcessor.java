@@ -1,7 +1,8 @@
 package ch.zhaw.schilram.lernjournal.fileImport;
 
 import ch.zhaw.schilram.lernjournal.domain.Ingredient;
-import ch.zhaw.schilram.lernjournal.exception.NoIngredientFileException;
+import ch.zhaw.schilram.lernjournal.exceptions.FileNotDeletedException;
+import ch.zhaw.schilram.lernjournal.exceptions.NoIngredientFileException;
 import ch.zhaw.schilram.lernjournal.service.IngredientService;
 import org.apache.log4j.Logger;
 
@@ -67,8 +68,19 @@ public class IngredientFileProcessor extends AbstractFileProcessor {
     public void run() {
         try {
             final Ingredient ingredient = readFile();
-            service.add(ingredient.getName(), ingredient.getDescription());
-            file.delete();
+            IngredientAdder.insert(ingredient);
+//            service.add(ingredient.getName(), ingredient.getDescription());
+
+            // Delete File
+            if (! file.canWrite()) {
+                throw new IllegalArgumentException("Delete: write proteced: " + file.getName());
+            }
+            boolean success = file.delete();
+            file.renameTo(new File(file.getName() + ".inserted"));
+            if (!success) {
+
+            }
+
         } catch (NoIngredientFileException e) {
             e.printStackTrace();
         }

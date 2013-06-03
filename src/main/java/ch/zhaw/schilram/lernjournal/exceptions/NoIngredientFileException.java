@@ -1,4 +1,4 @@
-package ch.zhaw.schilram.lernjournal.exception;
+package ch.zhaw.schilram.lernjournal.exceptions;
 
 /**
  * @author schilram
