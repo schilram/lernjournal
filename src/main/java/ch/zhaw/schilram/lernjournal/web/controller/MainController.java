@@ -1,4 +1,4 @@
-package ch.zhaw.schilram.lernjournal.controller;
+package ch.zhaw.schilram.lernjournal.web.controller;
 
 import ch.zhaw.schilram.lernjournal.domain.Person;
 import ch.zhaw.schilram.lernjournal.service.PersonService;

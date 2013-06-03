@@ -1,9 +1,7 @@
-package ch.zhaw.schilram.lernjournal.controller;
+package ch.zhaw.schilram.lernjournal.web.controller;
 
 import ch.zhaw.schilram.lernjournal.domain.Ingredient;
-import ch.zhaw.schilram.lernjournal.domain.Person;
 import ch.zhaw.schilram.lernjournal.service.IngredientService;
-import ch.zhaw.schilram.lernjournal.service.PersonService;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

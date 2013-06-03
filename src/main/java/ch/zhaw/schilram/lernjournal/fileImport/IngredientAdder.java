@@ -24,7 +24,7 @@ public class IngredientAdder {
 //        }
 //    }
 
-    public static void insert(final Ingredient ingredient)  {
+    public static boolean insert(final Ingredient ingredient)  {
         Connection dbConnection = null;
         PreparedStatement preparedStatement = null;
 
@@ -40,14 +40,20 @@ public class IngredientAdder {
             preparedStatement.setString(2, ingredient.getDescription());
             
             // execute insert SQL stetement
-            preparedStatement.executeUpdate();
+            int result = preparedStatement.executeUpdate();
+            if (result == 1) {
+                System.out.println("Record is inserted");
+                return true;
+            } else {
+                return false;
+            }
 
-            System.out.println("Record is inserted");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
             JdbcConnection.closeConnection(dbConnection);
         }
+        return false;
     }
 
 }

@@ -69,17 +69,10 @@ public class IngredientFileProcessor extends AbstractFileProcessor {
     public void run() {
         try {
             final Ingredient ingredient = readFile();
-            IngredientAdder.insert(ingredient);
+            final boolean inserted = IngredientAdder.insert(ingredient);
 //            service.add(ingredient.getName(), ingredient.getDescription());
-
-            // Delete File
-            if (! file.canWrite()) {
-                throw new IllegalArgumentException("Delete: write proteced: " + file.getName());
-            }
-            boolean success = file.delete();
-            file.renameTo(new File(file.getName() + ".inserted"));
-            if (!success) {
-
+            if (inserted) {
+                file.delete();
             }
 
         } catch (NoIngredientFileException e) {
