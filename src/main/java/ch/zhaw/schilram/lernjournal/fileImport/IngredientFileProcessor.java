@@ -1,7 +1,6 @@
 package ch.zhaw.schilram.lernjournal.fileImport;
 
 import ch.zhaw.schilram.lernjournal.domain.Ingredient;
-import ch.zhaw.schilram.lernjournal.exceptions.FileNotDeletedException;
 import ch.zhaw.schilram.lernjournal.exceptions.NoIngredientFileException;
 import ch.zhaw.schilram.lernjournal.service.IngredientService;
 import org.apache.log4j.Logger;
@@ -53,6 +52,8 @@ public class IngredientFileProcessor extends AbstractFileProcessor {
             }
             ingredient.setName(name);
             ingredient.setDescription(description);
+
+            reader.close();
 
         } catch (FileNotFoundException e) {
             LOGGER.debug("FileNotFoundException");
