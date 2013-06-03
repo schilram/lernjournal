@@ -2,7 +2,7 @@ package ch.zhaw.schilram.lernjournal.fileImport;
 
 import ch.zhaw.schilram.lernjournal.domain.Ingredient;
 import ch.zhaw.schilram.lernjournal.exceptions.NoIngredientFileException;
-import ch.zhaw.schilram.lernjournal.service.IngredientService;
+import ch.zhaw.schilram.lernjournal.web.service.IngredientService;
 import org.apache.log4j.Logger;
 
 import java.io.*;

@@ -1,4 +1,4 @@
-package ch.zhaw.schilram.lernjournal.service;
+package ch.zhaw.schilram.lernjournal.web.service;
 
 import ch.zhaw.schilram.lernjournal.domain.Ingredient;
 import org.apache.log4j.Logger;

@@ -146,6 +146,6 @@
 
     </dependencies>
     <build>
-        <finalName>spring-jdbc</finalName>
+        <finalName>lernjournal</finalName>
     </build>
 </project>
