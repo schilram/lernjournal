@@ -1,6 +1,7 @@
 package ch.zhaw.schilram.lernjournal.web.controller;
 
-import ch.zhaw.schilram.lernjournal.fileImport.DirectoryScanner;
+import ch.zhaw.schilram.lernjournal.fileImport.FileImportService;
+import ch.zhaw.schilram.lernjournal.fileImport.FileImportServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,12 +30,12 @@ public class ImportController {
         return "/import/overview";
     }
 
-    @RequestMapping(value = "/import/tmp", method = RequestMethod.GET)
+    @RequestMapping(value = "/import/ingredientsFromTmp", method = RequestMethod.GET)
     public String importFromTmp() {
         logger.debug("Start Import from tmp dir");
 
-        DirectoryScanner scanner = new DirectoryScanner("c:\\tmp");
-        scanner.scanDirectory();
+        final FileImportService fis = new FileImportServiceImpl();
+        fis.importIngredientsFromTmp();
 
         // This will resolve to /WEB-INF/jsp/import/scanned.jsp
         return "/import/scanned";

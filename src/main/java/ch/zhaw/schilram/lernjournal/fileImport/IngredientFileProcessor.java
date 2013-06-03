@@ -2,6 +2,7 @@ package ch.zhaw.schilram.lernjournal.fileImport;
 
 import ch.zhaw.schilram.lernjournal.domain.Ingredient;
 import ch.zhaw.schilram.lernjournal.exceptions.NoIngredientFileException;
+import ch.zhaw.schilram.lernjournal.jdbc.IngredientInserter;
 import ch.zhaw.schilram.lernjournal.web.service.IngredientService;
 import org.apache.log4j.Logger;
 
@@ -69,7 +70,8 @@ public class IngredientFileProcessor extends AbstractFileProcessor {
     public void run() {
         try {
             final Ingredient ingredient = readFile();
-            final boolean inserted = IngredientAdder.insert(ingredient);
+            final IngredientInserter inserter = new IngredientInserter();
+            final boolean inserted = inserter.insert(ingredient);
 //            service.add(ingredient.getName(), ingredient.getDescription());
             if (inserted) {
                 file.delete();

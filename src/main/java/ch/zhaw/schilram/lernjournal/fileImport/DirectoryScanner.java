@@ -19,9 +19,19 @@ public class DirectoryScanner {
         this.directory = new File(directory);
     }
 
+    public File getDirectory() {
+        return directory;
+    }
 
-    public void scanDirectory() {
+    public void setDirectory(final File directory) {
+        this.directory = directory;
+    }
 
+    /**
+     * scans the directory.
+     * @return files List with all Files in the scanned directory
+     */
+    public List<File> getFiles() {
         final String[] directoryContents = directory.list();
         final List<File> files = new ArrayList<File>();
 
@@ -30,12 +40,8 @@ public class DirectoryScanner {
             files.add(temp);
         }
 
-        for (File file : files) {
-            if (file.isFile() && file.getName().endsWith(".ingredient")) {
-                final IngredientFileProcessor ingredientFileProcessor = new IngredientFileProcessor(file);
-                ingredientFileProcessor.run();
-            }
-        }
+        return files;
+
     }
 
 }
