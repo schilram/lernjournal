@@ -1,17 +1,30 @@
--- TABLE Ingredients
-CREATE TABLE public.ingredients
+-- Database: lernjournal
+
+-- DROP DATABASE lernjournal;
+
+CREATE DATABASE lernjournal
+  WITH OWNER = lernjournal
+    ENCODING = 'UTF8'
+    TABLESPACE = pg_default
+    LC_COLLATE = 'German_Switzerland.1252'
+    LC_CTYPE = 'German_Switzerland.1252'
+    CONNECTION LIMIT = -1;
+
+
+-- Table: ingredients
+
+-- DROP TABLE ingredients;
+
+CREATE TABLE ingredients
 (
-  id serial,
+  id serial NOT NULL,
   name character varying(32),
   description text,
+  flavour character varying(32),
   CONSTRAINT ingredient_id PRIMARY KEY (id)
 )
 WITH (
-OIDS = FALSE
-)
-;
-ALTER TABLE public.ingredients
-OWNER TO lernjournal;
-
-
--- TABLE recepies
+  OIDS=FALSE
+);
+ALTER TABLE ingredients
+  OWNER TO lernjournal;
