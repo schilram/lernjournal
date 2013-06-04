@@ -15,7 +15,18 @@ public class FileImportServiceImpl implements FileImportService {
 
     @Override
     public void importAllFromDirectory(final String path) {
-        // To implement
+        final List<File> files = getFiles(path);
+
+        for (File file : files) {
+            if (file.isFile() && file.getName().endsWith(".ingredient")) {
+                final IngredientFileProcessor ingredientFileProcessor = new IngredientFileProcessor(file);
+                ingredientFileProcessor.run();
+            }
+            if (file.isFile() && file.getName().endsWith(".recipe")) {
+                final RecipeFileProcessor recipeFileProcessor = new RecipeFileProcessor(file);
+                recipeFileProcessor.run();
+            }
+        }
     }
 
     @Override
@@ -24,7 +35,12 @@ public class FileImportServiceImpl implements FileImportService {
     }
 
     @Override
-    public void importIngredientsFromDirectory(final String path) {
+    public void importRecipesFromTmp() {
+        importIngredientsFromDirectory(TMP_PATH);
+    }
+
+    @Override
+     public void importIngredientsFromDirectory(final String path) {
 
         final List<File> files = getFiles(path);
 
@@ -32,6 +48,19 @@ public class FileImportServiceImpl implements FileImportService {
             if (file.isFile() && file.getName().endsWith(".ingredient")) {
                 final IngredientFileProcessor ingredientFileProcessor = new IngredientFileProcessor(file);
                 ingredientFileProcessor.run();
+            }
+        }
+    }
+
+    @Override
+    public void importRecipesFromDirectory(final String path) {
+
+        final List<File> files = getFiles(path);
+
+        for (File file : files) {
+            if (file.isFile() && file.getName().endsWith(".recipe")) {
+                final RecipeFileProcessor recipeFileProcessor = new RecipeFileProcessor(file);
+                recipeFileProcessor.run();
             }
         }
     }

@@ -14,6 +14,9 @@
 <p>
     C:\tmp scanned and all files imported
 </p>
+<p>
+    <a href="/lernjournal/">back to index</a>
+</p>
 
 </body>
 </html>

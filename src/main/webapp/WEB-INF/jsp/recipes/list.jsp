@@ -5,15 +5,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Lernjournal</title>
+<title>Recipes</title>
 </head>
 <body>
 
-<h1>Lernjournal Index Page</h1>
+<h1>Recipes</h1>
 
-<a href="ingredients/">Show Ingredients</a><br/>
-<a href="recipes/">Show Recipes</a><br/>
-<a href="import/">Go To Import</a>
+<table>
+	<tr>
+		<td width="50">Id</td>
+		<td width="150">Name</td>
+		<td width="450">Description</td>
+	</tr>
+	<c:forEach items="${ingredients}" var="i">
+		<tr>
+			<td><c:out value="${i.id}" /></td>
+			<td><c:out value="${i.name}" /></td>
+			<td><c:out value="${i.description}" /></td>
+		</tr>
+	</c:forEach>
+</table>
 
 </body>
 </html>

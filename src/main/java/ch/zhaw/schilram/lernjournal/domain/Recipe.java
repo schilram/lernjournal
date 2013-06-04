@@ -5,8 +5,7 @@ import java.io.Serializable;
 /**
  * @author schilram
  */
-public class Recipe implements Serializable {
-
+public class Recipe extends StorableItem {
 
     private static final long serialVersionUID = 1L;
 

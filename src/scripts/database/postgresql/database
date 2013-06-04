@@ -33,3 +33,23 @@ WITH (
 );
 ALTER TABLE ingredients
   OWNER TO lernjournal;
+
+
+-- Table: recipes
+
+-- DROP TABLE recipes;
+
+CREATE TABLE public.recipes
+(
+  id serial,
+  name character varying(64),
+  description character varying(255),
+  instructions text,
+  CONSTRAINT recipe_id PRIMARY KEY (id)
+)
+WITH (
+OIDS = FALSE
+)
+;
+ALTER TABLE public.recipes
+OWNER TO lernjournal;

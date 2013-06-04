@@ -41,7 +41,6 @@ public class DirectoryScanner {
         }
 
         return files;
-
     }
 
 }

@@ -17,10 +17,7 @@ public class ImportController {
 
     protected static Logger logger = Logger.getLogger("importController");
 
-    /**
-     *
-     * @return the name of the JSP page
-     */
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String showImport() {
 
@@ -30,12 +27,34 @@ public class ImportController {
         return "/import/overview";
     }
 
-    @RequestMapping(value = "/import/ingredientsFromTmp", method = RequestMethod.GET)
-    public String importFromTmp() {
+    @RequestMapping(value = "/ingredientsFromTmp", method = RequestMethod.GET)
+    public String ingredientsFromTmp() {
         logger.debug("Start Import from tmp dir");
 
         final FileImportServiceImpl fis = new FileImportServiceImpl();
         fis.importIngredientsFromTmp();
+
+        // This will resolve to /WEB-INF/jsp/import/scanned.jsp
+        return "/import/scanned";
+    }
+
+    @RequestMapping(value = "/recipesFromTmp", method = RequestMethod.GET)
+    public String recipesFromTmp() {
+        logger.debug("Start Import from tmp dir");
+
+        final FileImportServiceImpl fis = new FileImportServiceImpl();
+        fis.importRecipesFromTmp();
+
+        // This will resolve to /WEB-INF/jsp/import/scanned.jsp
+        return "/import/scanned";
+    }
+
+    @RequestMapping(value = "/allFromTmp", method = RequestMethod.GET)
+    public String allFromTmp() {
+        logger.debug("Start Import from tmp dir");
+
+        final FileImportServiceImpl fis = new FileImportServiceImpl();
+        fis.importAllFromTmp();
 
         // This will resolve to /WEB-INF/jsp/import/scanned.jsp
         return "/import/scanned";

@@ -11,7 +11,9 @@
 
 <h1>Import from Directory</h1>
 
-<button><a href="ingredientsFromTmp"/>Import Ingredients form tmp directory</button>
+<a href="ingredientsFromTmp">Import Ingredients form tmp directory</a><br/>
+<a href="recipesFromTmp">Import Recipes form tmp directory</a><br/>
+<a href="allFromTmp">Import All form tmp directory</a><br/>
 
 </body>
 </html>

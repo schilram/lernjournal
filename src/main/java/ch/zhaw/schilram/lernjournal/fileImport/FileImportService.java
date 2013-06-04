@@ -29,4 +29,15 @@ public interface FileImportService {
      */
     void importIngredientsFromTmp();
 
+    /**
+     * imports all Recipes files form a directory.
+     * @param path Path to import from
+     */
+    void importRecipesFromDirectory(final String path);
+
+    /**
+     * imports all Recipes files form Temp directory.
+     */
+    void importRecipesFromTmp();
+
 }

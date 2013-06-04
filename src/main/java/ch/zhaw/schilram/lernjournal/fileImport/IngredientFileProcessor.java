@@ -16,13 +16,6 @@ import java.io.*;
  */
 public class IngredientFileProcessor extends AbstractFileProcessor {
 
-    public static final Logger LOGGER = Logger.getLogger("ingredientFileReader");
-
-
-    private final IngredientService service = new IngredientService();
-    private final Ingredient ingredient = new Ingredient();
-
-
     public IngredientFileProcessor(final File file) {
         super(file);
     }
@@ -31,9 +24,8 @@ public class IngredientFileProcessor extends AbstractFileProcessor {
         final Ingredient ingredient = new Ingredient();
 
         try {
-            LOGGER.debug("Reading File");
             final BufferedReader reader = new BufferedReader(new FileReader(file));
-            String line = reader.readLine();
+            final String line = reader.readLine();
 
             final String[] parts = line.split(";");
             if (parts.length > 3) {
@@ -50,7 +42,7 @@ public class IngredientFileProcessor extends AbstractFileProcessor {
             }
             if (parts.length > 2) {
 
-                String f = parts[2].trim().toUpperCase();
+                final String f = parts[2].trim().toUpperCase();
                 if (f.equals(Ingredient.Flavour.SALTY.name())) {
                     flavour = Ingredient.Flavour.SALTY;
                 } else if (f.equals(Ingredient.Flavour.SWEET.name())) {
@@ -74,7 +66,6 @@ public class IngredientFileProcessor extends AbstractFileProcessor {
             reader.close();
 
         } catch (FileNotFoundException e) {
-            LOGGER.debug("FileNotFoundException");
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
