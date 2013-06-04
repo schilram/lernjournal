@@ -11,6 +11,7 @@ public class Ingredient extends StorableItem {
 
     private Integer id;
     private String name;
+    private Flavour flavour;
     private String description;
 
     public Integer getId() {
@@ -35,5 +36,17 @@ public class Ingredient extends StorableItem {
 
     public void setDescription(final String description) {
         this.description = description;
+    }
+
+    public Flavour getFlavour() {
+        return flavour;
+    }
+
+    public void setFlavour(final Flavour flavour) {
+        this.flavour = flavour;
+    }
+
+    public enum Flavour {
+        SALTY, SWEET, SOUR, BITTER, UMAMI
     }
 }

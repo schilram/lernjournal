@@ -40,7 +40,7 @@ public class IngredientService {
         logger.debug("Retrieving all ingredients");
 
         // Prepare our SQL statement
-        String sql = "select id, name, description from ingredients";
+        String sql = "select id, name, description, flavour from ingredients";
 
         // Maps a SQL result to a Java object
         RowMapper<Ingredient> mapper = new RowMapper<Ingredient>() {
@@ -49,6 +49,21 @@ public class IngredientService {
                 ingredient.setId(rs.getInt("id"));
                 ingredient.setName(rs.getString("name"));
                 ingredient.setDescription(rs.getString("description"));
+
+                String flavour = (rs.getString("flavour"));
+                if (flavour != null) {
+                    if (flavour.equals(Ingredient.Flavour.SALTY.name())) {
+                        ingredient.setFlavour(Ingredient.Flavour.SALTY);
+                    } else if (flavour.equals(Ingredient.Flavour.SWEET.name())) {
+                        ingredient.setFlavour(Ingredient.Flavour.SWEET);
+                    } else if (flavour.equals(Ingredient.Flavour.SOUR.name())) {
+                        ingredient.setFlavour(Ingredient.Flavour.SOUR);
+                    } else if (flavour.equals(Ingredient.Flavour.BITTER.name())) {
+                        ingredient.setFlavour(Ingredient.Flavour.BITTER);
+                    } else if (flavour.equals(Ingredient.Flavour.UMAMI.name())) {
+                        ingredient.setFlavour(Ingredient.Flavour.UMAMI);
+                    }
+                }
 
                 return ingredient;
             }
@@ -64,16 +79,17 @@ public class IngredientService {
      * @param name the name of the ingredient
      * @param description the last description of the ingredient
      */
-    public void add(final String name, final String description) {
+    public void add(final String name, final String description, final String flavour) {
         logger.debug("Adding new ingredient");
 
         // Prepare our SQL statement using Named Parameters style
-        String sql = "insert into ingredients(name, description) values (:name, :description)";
+        String sql = "insert into ingredients(name, description, flavour) values (:name, :description, :flavour)";
 
         // Assign values to parameters
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("name", name);
         parameters.put("description", description);
+        parameters.put("flavour", flavour);
 
         // Save
         jdbcTemplate.update(sql, parameters);
@@ -102,17 +118,18 @@ public class IngredientService {
      * @param name the name of the existing ingredient
      * @param description the description of the existing ingredient
      */
-    public void edit(final Integer id, final String name, final String description) {
+    public void edit(final Integer id, final String name, final String description, final String flavour) {
         logger.debug("Editing existing ingredient");
 
         // Prepare our SQL statement
-        final String sql = "update ingredients set name = :name, description= :description where id = :id";
+        final String sql = "update ingredients set name = :name, description = :description, flavour = :flavour where id = :id";
 
         // Assign values to parameters
         final Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("id", id);
         parameters.put("name", name);
         parameters.put("description", description);
+        parameters.put("flavour", flavour);
 
         // Edit
         jdbcTemplate.update(sql, parameters);

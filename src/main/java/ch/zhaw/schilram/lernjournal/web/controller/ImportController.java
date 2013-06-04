@@ -34,7 +34,7 @@ public class ImportController {
     public String importFromTmp() {
         logger.debug("Start Import from tmp dir");
 
-        final FileImportService fis = new FileImportServiceImpl();
+        final FileImportServiceImpl fis = new FileImportServiceImpl();
         fis.importIngredientsFromTmp();
 
         // This will resolve to /WEB-INF/jsp/import/scanned.jsp

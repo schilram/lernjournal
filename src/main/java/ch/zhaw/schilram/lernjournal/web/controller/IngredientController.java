@@ -56,15 +56,16 @@ public class IngredientController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String add(
             @RequestParam(value = "name", required = true) final String name,
-            @RequestParam(value = "description", required = true) final  String description) {
+            @RequestParam(value = "description", required = false) final  String description,
+            @RequestParam(value = "flavour", required = false) final  String flavour) {
 
         logger.debug("Received request to add new ingredient");
 
         // Call IngredientService to do the actual adding
-        ingredientService.add(name, description);
+        ingredientService.add(name, description, flavour);
 
         // This will resolve to /WEB-INF/jsp/ingredients/addedpage.jsp
-        return "/ingredients/addedpage";
+        return "ingredients/addedpage";
     }
 
     /**
@@ -85,7 +86,7 @@ public class IngredientController {
         model.addAttribute("id", id);
 
         // This will resolve to /WEB-INF/jsp/ingredients/deletedpage.jsp
-        return "deletedpage";
+        return "ingredients/deletedpage";
     }
 
     /**
@@ -98,19 +99,20 @@ public class IngredientController {
     public String edit(
             @RequestParam(value = "id", required = true) final Integer id,
             @RequestParam(value = "name", required = true) final String name,
-            @RequestParam(value = "description", required = true) final String description,
+            @RequestParam(value = "description", required = false) final String description,
+            @RequestParam(value = "flavour", required = false) final  String flavour,
             final Model model) {
 
         logger.debug("Received request to edit existing ingredient");
 
         // Call IngredientService to do the actual editing
-        ingredientService.edit(id, name, description);
+        ingredientService.edit(id, name, description, flavour);
 
         // Add id reference to Model
         model.addAttribute("id", id);
 
         // This will resolve to /WEB-INF/jsp/ingredients/editedpage.jsp
-        return "editedpage";
+        return "ingredients/editedpage";
     }
 
 }

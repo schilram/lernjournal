@@ -36,16 +36,32 @@ public class IngredientFileProcessor extends AbstractFileProcessor {
             String line = reader.readLine();
 
             final String[] parts = line.split(";");
-            if (parts.length > 2) {
+            if (parts.length > 3) {
                 throw new NoIngredientFileException();
             }
 
             String name = "";
             String description = "";
+            Ingredient.Flavour flavour = null;
 
             name = parts[0].trim();
-            if (parts.length == 2) {
+            if (parts.length > 1) {
                 description = parts[1].trim();
+            }
+            if (parts.length > 2) {
+
+                String f = parts[2].trim().toUpperCase();
+                if (f.equals(Ingredient.Flavour.SALTY.name())) {
+                    flavour = Ingredient.Flavour.SALTY;
+                } else if (f.equals(Ingredient.Flavour.SWEET.name())) {
+                    flavour = Ingredient.Flavour.SWEET;
+                } else if (f.equals(Ingredient.Flavour.SOUR.name())) {
+                    flavour = Ingredient.Flavour.SOUR;
+                } else if (f.equals(Ingredient.Flavour.BITTER.name())) {
+                    flavour = Ingredient.Flavour.BITTER;
+                } else if (f.equals(Ingredient.Flavour.UMAMI.name())) {
+                    flavour = Ingredient.Flavour.UMAMI;
+                }
             }
 
             if (name.equals("")) {
@@ -53,6 +69,7 @@ public class IngredientFileProcessor extends AbstractFileProcessor {
             }
             ingredient.setName(name);
             ingredient.setDescription(description);
+            ingredient.setFlavour(flavour);
 
             reader.close();
 
@@ -72,7 +89,7 @@ public class IngredientFileProcessor extends AbstractFileProcessor {
             final Ingredient ingredient = readFile();
             final IngredientInserter inserter = new IngredientInserter();
             final boolean inserted = inserter.insert(ingredient);
-//            service.add(ingredient.getName(), ingredient.getDescription());
+
             if (inserted) {
                 file.delete();
             }

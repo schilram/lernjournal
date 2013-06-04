@@ -22,8 +22,8 @@ public class IngredientInserter extends AbstractInserter {
         }
 
         String query = "INSERT INTO ingredients"
-                + "(name, description) VALUES"
-                + "(?,?)";
+                + "(name, description, flavour) VALUES"
+                + "(?,?,?)";
 
 
         try {
@@ -31,6 +31,11 @@ public class IngredientInserter extends AbstractInserter {
 
             preparedStatement.setString(1, ingredient.getName());
             preparedStatement.setString(2, ingredient.getDescription());
+            if (ingredient.getFlavour() != null) {
+                preparedStatement.setString(3, ingredient.getFlavour().name());
+            } else {
+                preparedStatement.setString(3, "");
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();

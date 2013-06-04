@@ -16,12 +16,14 @@
 		<td width="50">Id</td>
 		<td width="150">Name</td>
 		<td width="450">Description</td>
+		<td width="100">Flavour</td>
 	</tr>
 	<c:forEach items="${ingredients}" var="i">
 		<tr>
 			<td><c:out value="${i.id}" /></td>
 			<td><c:out value="${i.name}" /></td>
 			<td><c:out value="${i.description}" /></td>
+			<td><c:out value="${i.flavour}" /></td>
 		</tr>
 	</c:forEach>
 </table>
