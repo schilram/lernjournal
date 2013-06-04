@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
- * @author: rschilling
+ * @author schilram
  */
 public abstract class AbstractInserter<T extends StorableItem> {
 

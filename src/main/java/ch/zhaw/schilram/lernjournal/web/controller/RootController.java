@@ -1,6 +1,5 @@
 package ch.zhaw.schilram.lernjournal.web.controller;
 
-import ch.zhaw.schilram.lernjournal.fileImport.FileImportService;
 import ch.zhaw.schilram.lernjournal.fileImport.FileImportServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -12,22 +11,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles and retrieves person request.
  */
 @Controller
-@RequestMapping("/import")
-public class ImportController {
+@RequestMapping("/")
+public class RootController {
 
-    protected static Logger logger = Logger.getLogger("importController");
+    protected static Logger logger = Logger.getLogger("rootController");
 
     /**
      *
      * @return the name of the JSP page
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String showImport() {
+    public String showIndex() {
 
-        logger.debug("Received request to show import possibilities");
+        logger.debug("Received request to show index");
 
-        // This will resolve to /WEB-INF/jsp/import/overview.jsp
-        return "/import/overview";
+        // This will resolve to /WEB-INF/jsp/index.jsp
+        return "/index";
     }
 
     @RequestMapping(value = "/import/ingredientsFromTmp", method = RequestMethod.GET)
