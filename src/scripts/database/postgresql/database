@@ -1,3 +1,8 @@
+-- User: lernjounal (with password "lernjournla")
+CREATE ROLE lernjournal LOGIN ENCRYPTED PASSWORD 'md56b9e139f33472d38325f9069dca0fa16'
+  VALID UNTIL 'infinity';
+
+
 -- Database: lernjournal
 
 -- DROP DATABASE lernjournal;
