@@ -1,7 +1,5 @@
 package ch.zhaw.schilram.lernjournal.domain;
 
-import java.io.Serializable;
-
 /**
  * @author schilram
  */
@@ -12,7 +10,7 @@ public class Recipe extends StorableItem {
     private Integer id;
     private String name;
     private String description;
-    private String instruction;
+    private String instructions;
 
     public Integer getId() {
         return id;
@@ -38,11 +36,11 @@ public class Recipe extends StorableItem {
         this.description = description;
     }
 
-    public String getInstruction() {
-        return instruction;
+    public String getInstructions() {
+        return instructions;
     }
 
-    public void setInstruction(final String instruction) {
-        this.instruction = instruction;
+    public void setInstructions(final String instructions) {
+        this.instructions = instructions;
     }
 }

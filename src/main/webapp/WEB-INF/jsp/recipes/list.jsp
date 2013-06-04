@@ -17,7 +17,7 @@
 		<td width="150">Name</td>
 		<td width="450">Description</td>
 	</tr>
-	<c:forEach items="${ingredients}" var="i">
+	<c:forEach items="${recipes}" var="i">
 		<tr>
 			<td><c:out value="${i.id}" /></td>
 			<td><c:out value="${i.name}" /></td>

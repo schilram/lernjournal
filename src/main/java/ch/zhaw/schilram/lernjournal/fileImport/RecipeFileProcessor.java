@@ -1,12 +1,8 @@
 package ch.zhaw.schilram.lernjournal.fileImport;
 
-import ch.zhaw.schilram.lernjournal.domain.Ingredient;
 import ch.zhaw.schilram.lernjournal.domain.Recipe;
-import ch.zhaw.schilram.lernjournal.exceptions.NoIngredientFileException;
 import ch.zhaw.schilram.lernjournal.exceptions.NoRecipeFileException;
-import ch.zhaw.schilram.lernjournal.jdbc.IngredientInserter;
 import ch.zhaw.schilram.lernjournal.jdbc.RecipeInserter;
-import ch.zhaw.schilram.lernjournal.web.service.IngredientService;
 
 import java.io.*;
 
@@ -51,7 +47,7 @@ public class RecipeFileProcessor extends AbstractFileProcessor {
             }
             recipe.setName(name);
             recipe.setDescription(description);
-            recipe.setInstruction(instructions);
+            recipe.setInstructions(instructions);
 
             reader.close();
 

@@ -1,6 +1,5 @@
 package ch.zhaw.schilram.lernjournal.web.service;
 
-import ch.zhaw.schilram.lernjournal.domain.Ingredient;
 import ch.zhaw.schilram.lernjournal.domain.Recipe;
 import org.apache.log4j.Logger;
 import org.springframework.jdbc.core.RowMapper;
@@ -12,9 +11,7 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author schilram
@@ -50,7 +47,7 @@ public class RecipeService {
                 recipe.setId(rs.getInt("id"));
                 recipe.setName(rs.getString("name"));
                 recipe.setDescription(rs.getString("description"));
-                recipe.setInstruction(rs.getString("instruction"));
+                recipe.setInstructions(rs.getString("instructions"));
 
                 return recipe;
             }

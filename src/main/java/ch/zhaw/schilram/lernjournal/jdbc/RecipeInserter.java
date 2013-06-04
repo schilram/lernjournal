@@ -1,6 +1,5 @@
 package ch.zhaw.schilram.lernjournal.jdbc;
 
-import ch.zhaw.schilram.lernjournal.domain.Ingredient;
 import ch.zhaw.schilram.lernjournal.domain.Recipe;
 import ch.zhaw.schilram.lernjournal.domain.StorableItem;
 
@@ -33,7 +32,7 @@ public class RecipeInserter extends AbstractInserter {
 
             preparedStatement.setString(1, recipe.getName());
             preparedStatement.setString(2, recipe.getDescription());
-            preparedStatement.setString(3, recipe.getInstruction());
+            preparedStatement.setString(3, recipe.getInstructions());
 
         } catch (SQLException e) {
             e.printStackTrace();
